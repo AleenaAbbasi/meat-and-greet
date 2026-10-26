@@ -1,0 +1,695 @@
+fileFormatVersion: 2
+guid: ac93d72761f7dfb468dcfb86295d8f31
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4137348567739102170
+    second: Isometric_Cafe_Counter_Tileset_0
+  - first:
+      213: 209737150990587515
+    second: Isometric_Cafe_Counter_Tileset_1
+  - first:
+      213: 3450281240506774769
+    second: Isometric_Cafe_Counter_Tileset_2
+  - first:
+      213: -6116349523977841969
+    second: Isometric_Cafe_Counter_Tileset_3
+  - first:
+      213: 5943413675514618958
+    second: Isometric_Cafe_Counter_Tileset_4
+  - first:
+      213: -8924277482194138267
+    second: Isometric_Cafe_Counter_Tileset_5
+  - first:
+      213: 7155527735039666002
+    second: Isometric_Cafe_Counter_Tileset_6
+  - first:
+      213: 552923023579065348
+    second: Isometric_Cafe_Counter_Tileset_7
+  - first:
+      213: -7505577951448184177
+    second: Isometric_Cafe_Counter_Tileset_8
+  - first:
+      213: -4625610938430109245
+    second: Isometric_Cafe_Counter_Tileset_9
+  - first:
+      213: 8405626808310334899
+    second: Isometric_Cafe_Counter_Tileset_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 1201
+        height: 599
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 533.5, y: 299.5}
+        - {x: 26.5, y: 299.5}
+        - {x: -23.620773, y: 275.09174}
+        - {x: 12.5, y: 297.5}
+        - {x: 12.5, y: 299.5}
+        - {x: -200.5, y: 299.5}
+        - {x: -200.5, y: 293.5}
+        - {x: -199.97826, y: 287.5}
+        - {x: -358.4091, y: 287.5}
+        - {x: -350.5, y: 293.5}
+        - {x: -350.5, y: 299.5}
+        - {x: -584.5, y: 299.5}
+        - {x: -584.5, y: 244.5}
+        - {x: -558.5, y: 226.5}
+        - {x: -533.523, y: 226.5}
+        - {x: -565.5, y: 200.5}
+        - {x: -600.5, y: 160.5}
+        - {x: -600.5, y: 34.5}
+        - {x: -570.3745, y: -5.954239}
+        - {x: -600.5, y: -90.5}
+        - {x: -600.5, y: -299.5}
+        - {x: -527.5, y: -299.5}
+        - {x: -508.5, y: -277.5}
+        - {x: -509.5, y: -240.5}
+        - {x: -503.5, y: -272.5}
+        - {x: -497.5, y: -285.5}
+        - {x: -484.5, y: -299.5}
+        - {x: -427.5, y: -299.5}
+        - {x: -406.5, y: -288.5}
+        - {x: -406.5, y: -274.5909}
+        - {x: -397.5, y: -288.5}
+        - {x: -368.5, y: -291.5}
+        - {x: -345.5, y: -291.5}
+        - {x: -332.18158, y: -287.82593}
+        - {x: -316.5, y: -299.5}
+        - {x: 146.5, y: -299.5}
+        - {x: 179.8211, y: -283.5}
+        - {x: 595.5, y: -283.5}
+        - {x: 600.5, y: -282.5}
+        - {x: 600.5, y: 271.5}
+      - - {x: 600.5, y: 286.5}
+        - {x: 600.5, y: 290.5}
+        - {x: 595.5, y: 290.5}
+        - {x: 593.5, y: 288.5}
+        - {x: 594.5, y: 285.5}
+        - {x: 599.5, y: 285.5}
+      - - {x: -189.5, y: 261.5}
+        - {x: -164.5, y: 236.5}
+        - {x: -131.5, y: 230.5}
+        - {x: -115.18703, y: 230.5}
+        - {x: -121.40936, y: 227.46979}
+        - {x: -121.5, y: 227.5}
+        - {x: -121.64493, y: 227.35507}
+        - {x: -189.5, y: 194.31041}
+      - - {x: -204.5, y: -247.5}
+        - {x: -206.5, y: -248.5}
+        - {x: -206.5, y: -247.5}
+        - {x: -208.5, y: -246.5}
+        - {x: -208.5, y: -245.5}
+        - {x: -206.5, y: -243.5}
+        - {x: -205.5, y: -244.5}
+        - {x: -202.5, y: -241.5}
+        - {x: -203.5, y: -236.5}
+        - {x: -202.5, y: -235.5}
+        - {x: -202.5, y: -233.5}
+        - {x: -204.5, y: -229.5}
+        - {x: -199.14285, y: -225.03572}
+        - {x: -197.5, y: -227.5}
+        - {x: -197.5, y: -232.5}
+        - {x: -198.5, y: -233.5}
+        - {x: -201.5, y: -237.5}
+        - {x: -201.5, y: -246.5}
+        - {x: -203.5, y: -248.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c80f3f56f2596c0800000000000000
+      internalID: -4137348567739102170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 527
+        width: 836
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 210, y: -110.46153}
+        - {x: 210, y: -110.5}
+        - {x: 211, y: -113.5}
+        - {x: 214, y: -114.5}
+        - {x: 216, y: -114.5}
+        - {x: 221, y: -108.5}
+        - {x: 221, y: -104.5}
+        - {x: 220.7561, y: -104.2561}
+        - {x: 255, y: -84.5}
+        - {x: 259, y: -77.5}
+        - {x: 393, y: -53.5}
+        - {x: 418, y: -2.5}
+        - {x: 418, y: 136.5}
+        - {x: 383, y: 174.5}
+        - {x: -140, y: 174.5}
+        - {x: -418, y: 115.5}
+        - {x: -418, y: -174.5}
+        - {x: 99, y: -174.5}
+      - - {x: 397, y: -63.5}
+        - {x: 394, y: -61.5}
+        - {x: 387, y: -61.5}
+        - {x: 385, y: -63.5}
+        - {x: 386, y: -66.5}
+        - {x: 383, y: -72.5}
+        - {x: 383, y: -77.5}
+        - {x: 387, y: -80.5}
+        - {x: 397, y: -80.5}
+      - - {x: 354, y: -78.5}
+        - {x: 353, y: -75.5}
+        - {x: 349, y: -75.5}
+        - {x: 347, y: -77.5}
+        - {x: 348, y: -80.5}
+        - {x: 352, y: -80.5}
+      - - {x: 148, y: -163.5}
+        - {x: 148, y: -174.5}
+        - {x: 418, y: -174.5}
+        - {x: 418, y: -101.5}
+        - {x: 314.25, y: -101.5}
+        - {x: 316, y: -100.5}
+        - {x: 322, y: -96.5}
+        - {x: 322, y: -94.5}
+        - {x: 319, y: -86.5}
+        - {x: 315, y: -85.5}
+        - {x: 309, y: -85.5}
+        - {x: 307, y: -86.5}
+        - {x: 307, y: -101.5}
+        - {x: 251, y: -101.5}
+      - - {x: 302, y: -97.5}
+        - {x: 302, y: -94.5}
+        - {x: 299, y: -93.5}
+        - {x: 297, y: -95.5}
+        - {x: 299, y: -98.5}
+      - - {x: 393, y: -96.5}
+        - {x: 392, y: -93.5}
+        - {x: 389, y: -93.5}
+        - {x: 387, y: -95.5}
+        - {x: 388, y: -98.5}
+        - {x: 391, y: -98.5}
+      - - {x: 245, y: -98.5}
+        - {x: 245, y: -96.5}
+        - {x: 242, y: -95.5}
+        - {x: 238, y: -99.5}
+        - {x: 238, y: -100.5}
+        - {x: 240, y: -102.5}
+        - {x: 241, y: -102.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b761ffcd3d229e200800000000000000
+      internalID: 209737150990587515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_2
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 569
+        width: 898
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -139, y: 144}
+        - {x: -139, y: 148}
+        - {x: -140, y: 149}
+        - {x: -144, y: 149}
+        - {x: -144, y: 145}
+        - {x: -142, y: 143}
+      - - {x: 357, y: 109}
+        - {x: 357, y: 112}
+        - {x: 355, y: 114}
+        - {x: 352, y: 113}
+        - {x: 352, y: 110}
+        - {x: 354, y: 108}
+      - - {x: 364, y: -143.94737}
+        - {x: 364, y: -149}
+        - {x: 425, y: -149}
+        - {x: 425, y: -137.52632}
+        - {x: 449, y: -135}
+        - {x: 449, y: 108}
+        - {x: -257, y: 108}
+        - {x: -449, y: 42}
+        - {x: -449, y: -149}
+        - {x: 316, y: -149}
+      - - {x: 327, y: 1}
+        - {x: 328, y: 3}
+        - {x: 327.55554, y: -0.1111145}
+      - - {x: 327, y: -2}
+        - {x: 327.3333, y: -1.6666718}
+        - {x: 327.22223, y: -2.4444427}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4b993028cd1ef20800000000000000
+      internalID: 3450281240506774769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_3
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 319
+        width: 395
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -61.5, y: -121.5}
+        - {x: -61.5, y: -118.5}
+        - {x: 86.5, y: -118.5}
+        - {x: 86.5, y: -120.5}
+        - {x: 92.5, y: -120.5}
+        - {x: 95.5, y: -119.5}
+        - {x: 95.5, y: -118.5}
+        - {x: 196.5, y: -118.5}
+        - {x: 196.5, y: -56.5}
+        - {x: 197.5, y: -55.5}
+        - {x: 197.5, y: -50.5}
+        - {x: 196.5, y: -49.5}
+        - {x: 196.5, y: 132.5}
+        - {x: -190.5, y: 132.5}
+        - {x: -197.5, y: 116.5}
+        - {x: -197.5, y: -118.5}
+        - {x: -65.5, y: -118.5}
+        - {x: -66.5, y: -119.5}
+        - {x: -64.5, y: -122.5}
+      - - {x: -65.5, y: -126.5}
+        - {x: -65.5, y: -121.5}
+        - {x: -71.5, y: -121.5}
+        - {x: -72.5, y: -123.5}
+        - {x: -72.5, y: -125.5}
+        - {x: -70.5, y: -127.5}
+        - {x: -66.5, y: -127.5}
+      - - {x: 87.5, y: -129.5}
+        - {x: 85.5, y: -127.5}
+        - {x: 82.5, y: -128.5}
+        - {x: 82.5, y: -131.5}
+        - {x: 83.5, y: -132.5}
+        - {x: 87.5, y: -132.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2db25838c5e1ba0800000000000000
+      internalID: -6116349523977841969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_4
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 350
+        width: 145
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 72.5, y: -50.5}
+        - {x: 72.5, y: 95.5}
+        - {x: 44.5, y: 117.5}
+        - {x: -65.5, y: 117.5}
+        - {x: -65.5, y: -63.5}
+        - {x: -69.5, y: -63.5}
+        - {x: -72.5, y: -65.5}
+        - {x: -72.5, y: -69.5}
+        - {x: -69.5, y: -73.5}
+        - {x: -65.5, y: -73.5}
+        - {x: -65.5, y: -82.5}
+        - {x: -61.5, y: -84.5}
+        - {x: 19.5, y: -84.5}
+      - - {x: 20.5, y: -112.5}
+        - {x: 18.5, y: -111.5}
+        - {x: 15.5, y: -111.5}
+        - {x: 14.5, y: -113.5}
+        - {x: 14.5, y: -117.5}
+        - {x: 20.5, y: -117.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e446f329f3f3b7250800000000000000
+      internalID: 5943413675514618958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_5
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 17
+        width: 594
+        height: 292
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 22, y: -44}
+        - {x: -297, y: 97}
+        - {x: -276, y: 78.94263}
+        - {x: -297, y: 59}
+        - {x: -282, y: 114}
+        - {x: -287, y: 125}
+        - {x: -295, y: 132}
+        - {x: -297, y: 132}
+        - {x: -297, y: -110}
+        - {x: -275, y: -145}
+        - {x: -273, y: -146}
+        - {x: 252, y: -146}
+        - {x: 263.6667, y: -139}
+        - {x: 297, y: -139}
+        - {x: 297, y: -14}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b0dcca9e8962480800000000000000
+      internalID: -8924277482194138267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_6
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 25
+        width: 93
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 46.5, y: -38.5}
+        - {x: 46.5, y: 53.5}
+        - {x: -21.5, y: 53.5}
+        - {x: -46.5, y: 42.5}
+        - {x: -46.5, y: -53.5}
+        - {x: 39.5, y: -53.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257ae7b309a8d4360800000000000000
+      internalID: 7155527735039666002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_7
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 125
+        width: 477
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: -238.5, y: -25}
+        - {x: -153.5, y: -92}
+        - {x: 196.5, y: -92}
+        - {x: 196.5, y: -89}
+        - {x: 181.5, y: -83}
+        - {x: 177.02632, y: -83}
+        - {x: 238.5, y: -35}
+        - {x: 238.5, y: 91}
+        - {x: 237.5, y: 92}
+        - {x: -238.5, y: 92}
+      - - {x: 227.5, y: -61}
+        - {x: 228.5, y: -56}
+        - {x: 228.5, y: -54}
+        - {x: 227.5, y: -53}
+        - {x: 223.5, y: -53}
+        - {x: 221.5, y: -56}
+        - {x: 221.5, y: -60}
+        - {x: 223.5, y: -62}
+      - - {x: -231.5, y: -88}
+        - {x: -232.5, y: -85}
+        - {x: -235.5, y: -85}
+        - {x: -238.5, y: -86}
+        - {x: -238.5, y: -92}
+        - {x: -231.5, y: -92}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ca0987f806ca700800000000000000
+      internalID: 552923023579065348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_8
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 13
+        width: 317
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 158.5, y: -49}
+        - {x: 158.5, y: 11}
+        - {x: 147.5, y: 50}
+        - {x: 123.5, y: 60}
+        - {x: -92.5, y: 60}
+        - {x: -158.5, y: 42}
+        - {x: -158.5, y: -27}
+        - {x: -130.5, y: -40}
+        - {x: -46.5, y: -60}
+        - {x: 152.5, y: -60}
+      - - {x: -149.5, y: 53}
+        - {x: -148.5, y: 56}
+        - {x: -148.5, y: 60}
+        - {x: -158.5, y: 60}
+        - {x: -158.5, y: 52}
+        - {x: -152.5, y: 52}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a4de19e94d6d790800000000000000
+      internalID: -7505577951448184177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_9
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 31
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 27, y: 25.5}
+        - {x: -27, y: 25.5}
+        - {x: -27, y: -19.5}
+        - {x: -10, y: -25.5}
+        - {x: 27, y: -25.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c946b9eb578ecfb0800000000000000
+      internalID: -4625610938430109245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Isometric_Cafe_Counter_Tileset_10
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 27
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 38.5, y: -33}
+        - {x: 38.5, y: 38}
+        - {x: -23.5, y: 38}
+        - {x: -38.5, y: 11}
+        - {x: -38.5, y: -21}
+        - {x: -27.5, y: -38}
+        - {x: 37.5, y: -38}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b586d71c09c6a470800000000000000
+      internalID: 8405626808310334899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a90ad6245a418ec48a58abe40ba9f5b6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Isometric_Cafe_Counter_Tileset_0: -4137348567739102170
+      Isometric_Cafe_Counter_Tileset_1: 209737150990587515
+      Isometric_Cafe_Counter_Tileset_10: 8405626808310334899
+      Isometric_Cafe_Counter_Tileset_2: 3450281240506774769
+      Isometric_Cafe_Counter_Tileset_3: -6116349523977841969
+      Isometric_Cafe_Counter_Tileset_4: 5943413675514618958
+      Isometric_Cafe_Counter_Tileset_5: -8924277482194138267
+      Isometric_Cafe_Counter_Tileset_6: 7155527735039666002
+      Isometric_Cafe_Counter_Tileset_7: 552923023579065348
+      Isometric_Cafe_Counter_Tileset_8: -7505577951448184177
+      Isometric_Cafe_Counter_Tileset_9: -4625610938430109245
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

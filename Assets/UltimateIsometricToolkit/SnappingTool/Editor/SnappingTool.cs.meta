@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 927fabba5106b654bbac500f5b9aff6c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 33032
+  packageName: Isometric Toolkit
+  packageVersion: 3.0
+  assetPath: Assets/UltimateIsometricToolkit/SnappingTool/Editor/SnappingTool.cs
+  uploadId: 381244

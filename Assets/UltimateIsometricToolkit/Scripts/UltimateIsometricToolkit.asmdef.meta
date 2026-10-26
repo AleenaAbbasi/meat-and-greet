@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e636a3dfebd4c5f439ec23ebd45d0a66
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 33032
+  packageName: Isometric Toolkit
+  packageVersion: 3.0
+  assetPath: Assets/UltimateIsometricToolkit/Scripts/UltimateIsometricToolkit.asmdef
+  uploadId: 381244

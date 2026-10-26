@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b745df70ce20c234cadfdfb4dca9120d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 33032
+  packageName: Isometric Toolkit
+  packageVersion: 3.0
+  assetPath: Assets/UltimateIsometricToolkit/Scripts/Isometric.cs
+  uploadId: 381244
