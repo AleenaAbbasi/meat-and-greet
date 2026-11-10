@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7374058797117950112}
   - component: {fileID: 3743411926944795303}
   - component: {fileID: 2325795111367472308}
+  - component: {fileID: 7419104654575149800}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -53,6 +54,11 @@ MonoBehaviour:
   frameHeight: 64
   columns: 3
   pixelsPerUnit: 100
+  possibleOrders:
+  - Burger
+  - Steak
+  - Meat Pie
+  - Kebab
 --- !u!114 &2325795111367472308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +74,42 @@ MonoBehaviour:
   attachTo: {fileID: 0}
   attachOffset: 1
   isStatic: 0
+--- !u!58 &7419104654575149800
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641213804356657576}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.4
 --- !u!1 &6923705040349846490
 GameObject:
   m_ObjectHideFlags: 0

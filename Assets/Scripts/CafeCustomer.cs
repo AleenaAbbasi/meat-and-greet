@@ -7,7 +7,7 @@ using UnityEngine;
 /// Uses a 3x4 sprite sheet (48x64 frames): rows are front, left, right, back.
 /// Set up like the Player: this script on the root, the SpriteRenderer on a child.
 /// </summary>
-public sealed class CafeCustomer : MonoBehaviour
+public sealed class CafeCustomer : MonoBehaviour, Interactable
 {
     public enum State { Entering, Seated, Leaving }
     private enum Facing { Front = 0, Left = 1, Right = 2, Back = 3 }
@@ -22,6 +22,8 @@ public sealed class CafeCustomer : MonoBehaviour
     [SerializeField] private int frameHeight = 64;
     [SerializeField] private int columns = 3;
     [SerializeField] private float pixelsPerUnit = 100f;
+    [SerializeField] private string[] possibleOrders = { "Burger", "Steak", "Meat Pie", "Kebab" };
+    public string Order { get; private set; }
 
     public State CurrentState { get; private set; } = State.Entering;
 
@@ -52,12 +54,15 @@ public sealed class CafeCustomer : MonoBehaviour
         seat = seatFeet;
         entrance = entranceFeet;
         stayTimer = staySeconds;
+        //random order when customer spawns shows on console
+        Order = possibleOrders[Random.Range(0, possibleOrders.Length)];
+        Debug.Log($"[Order] {sheet.name} arrived and wants: {Order}");
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         frames = Slice(sheet);
         SetFrame(Facing.Front, 0);
 
-        // Work out where the feet are relative to the pivot, then stand the feet on the entrance.
+        //workout where the feet are relative to the pivot, then stand the feet on the entrance.
         var b = spriteRenderer.bounds;
         feetOffset = transform.position - new Vector3(b.center.x, b.min.y, transform.position.z);
         feetOffset.z = 0f;
@@ -169,5 +174,11 @@ public sealed class CafeCustomer : MonoBehaviour
         int i = (int)f * columns + column;
         if (frames != null && i < frames.Length && frames[i] != null)
             spriteRenderer.sprite = frames[i];
+    }
+    public bool CanInteract(PlayerInteractor player) => CurrentState == State.Seated;
+
+    public void Interact(PlayerInteractor player)
+    {
+        Debug.Log($"[Order] Customer at seat {seatIndex + 1} wants: {Order}");
     }
 }
