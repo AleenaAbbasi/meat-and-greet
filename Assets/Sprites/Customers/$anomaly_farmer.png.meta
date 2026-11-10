@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 9c9a5c25129cf0c4dbbe30a27ae2182e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3837798792256239271
+    second: $anomaly_farmer_0
+  - first:
+      213: 6205221472101114644
+    second: $anomaly_farmer_1
+  - first:
+      213: -4188703137475483238
+    second: $anomaly_farmer_2
+  - first:
+      213: -2831900078785165707
+    second: $anomaly_farmer_3
+  - first:
+      213: 6706921986787714706
+    second: $anomaly_farmer_4
+  - first:
+      213: -7995923348588990274
+    second: $anomaly_farmer_5
+  - first:
+      213: -8648663039107519250
+    second: $anomaly_farmer_6
+  - first:
+      213: 6698528989586471625
+    second: $anomaly_farmer_7
+  - first:
+      213: -1816667634167718447
+    second: $anomaly_farmer_8
+  - first:
+      213: -736900017007375454
+    second: $anomaly_farmer_9
+  - first:
+      213: 111240934302461278
+    second: $anomaly_farmer_10
+  - first:
+      213: 3650726356697189301
+    second: $anomaly_farmer_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: $anomaly_farmer_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 193
+        width: 42
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959c42cf4566dbac0800000000000000
+      internalID: -3837798792256239271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 193
+        width: 42
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 413a63d5d006d1650800000000000000
+      internalID: 6205221472101114644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 193
+        width: 42
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99a53d60bcbed5c0800000000000000
+      internalID: -4188703137475483238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_3
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 129
+        width: 37
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5760c94e1e113b8d0800000000000000
+      internalID: -2831900078785165707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_4
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 129
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2962dbe1306c31d50800000000000000
+      internalID: 6706921986787714706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_5
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 129
+        width: 37
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0f9142416c80190800000000000000
+      internalID: -7995923348588990274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 65
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec22fbd9c6c9f780800000000000000
+      internalID: -8648663039107519250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_7
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 65
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca35fd20a4f5fc50800000000000000
+      internalID: 6698528989586471625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_8
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 65
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dddb7e6966e9c6e0800000000000000
+      internalID: -1816667634167718447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_9
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2abcb4bb65106c5f0800000000000000
+      internalID: -736900017007375454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_10
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1
+        width: 39
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5da4955a053b8100800000000000000
+      internalID: 111240934302461278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_farmer_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 1
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb871f674cf9a230800000000000000
+      internalID: 3650726356697189301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      $anomaly_farmer_0: -3837798792256239271
+      $anomaly_farmer_1: 6205221472101114644
+      $anomaly_farmer_10: 111240934302461278
+      $anomaly_farmer_11: 3650726356697189301
+      $anomaly_farmer_2: -4188703137475483238
+      $anomaly_farmer_3: -2831900078785165707
+      $anomaly_farmer_4: 6706921986787714706
+      $anomaly_farmer_5: -7995923348588990274
+      $anomaly_farmer_6: -8648663039107519250
+      $anomaly_farmer_7: 6698528989586471625
+      $anomaly_farmer_8: -1816667634167718447
+      $anomaly_farmer_9: -736900017007375454
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

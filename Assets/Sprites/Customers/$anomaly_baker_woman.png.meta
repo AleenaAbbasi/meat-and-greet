@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 22d6e68f9a61ca54289a30eb33bebe3f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2616588050284659092
+    second: $anomaly_baker_woman_0
+  - first:
+      213: 1988512062099760743
+    second: $anomaly_baker_woman_1
+  - first:
+      213: 6859937899273092097
+    second: $anomaly_baker_woman_2
+  - first:
+      213: -980621058127626819
+    second: $anomaly_baker_woman_3
+  - first:
+      213: -5034294342893788276
+    second: $anomaly_baker_woman_4
+  - first:
+      213: 4100704795823619414
+    second: $anomaly_baker_woman_5
+  - first:
+      213: 6126739029290140441
+    second: $anomaly_baker_woman_6
+  - first:
+      213: -3757152454263140333
+    second: $anomaly_baker_woman_7
+  - first:
+      213: -2004940484444574527
+    second: $anomaly_baker_woman_8
+  - first:
+      213: -6981631259597697236
+    second: $anomaly_baker_woman_9
+  - first:
+      213: 2334598278305026251
+    second: $anomaly_baker_woman_10
+  - first:
+      213: -2096762821589961533
+    second: $anomaly_baker_woman_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 193
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491cfbce7fcff4420800000000000000
+      internalID: 2616588050284659092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 193
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76629055f2d989b10800000000000000
+      internalID: 1988512062099760743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 193
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c79638c25633f50800000000000000
+      internalID: 6859937899273092097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 129
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbdf80bd7522462f0800000000000000
+      internalID: -980621058127626819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_4
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 129
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83ae0dc7f7922ab0800000000000000
+      internalID: -5034294342893788276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_5
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 129
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65dbecb0941a8e830800000000000000
+      internalID: 4100704795823619414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 65
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9134c50bfac860550800000000000000
+      internalID: 6126739029290140441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_7
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 65
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31098a4cfb9ebdbc0800000000000000
+      internalID: -3757152454263140333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_8
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 65
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cca1e480450d24e0800000000000000
+      internalID: -2004940484444574527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f8ae21c534c1f90800000000000000
+      internalID: -6981631259597697236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc01c9fc3c8266020800000000000000
+      internalID: 2334598278305026251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $anomaly_baker_woman_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c472e8a25dc6e2e0800000000000000
+      internalID: -2096762821589961533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      $anomaly_baker_woman_0: 2616588050284659092
+      $anomaly_baker_woman_1: 1988512062099760743
+      $anomaly_baker_woman_10: 2334598278305026251
+      $anomaly_baker_woman_11: -2096762821589961533
+      $anomaly_baker_woman_2: 6859937899273092097
+      $anomaly_baker_woman_3: -980621058127626819
+      $anomaly_baker_woman_4: -5034294342893788276
+      $anomaly_baker_woman_5: 4100704795823619414
+      $anomaly_baker_woman_6: 6126739029290140441
+      $anomaly_baker_woman_7: -3757152454263140333
+      $anomaly_baker_woman_8: -2004940484444574527
+      $anomaly_baker_woman_9: -6981631259597697236
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
