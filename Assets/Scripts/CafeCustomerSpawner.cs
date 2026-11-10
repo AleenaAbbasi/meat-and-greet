@@ -1,100 +1,120 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-/// <summary>
-/// Spawns customers at this object's position (the entrance) while there is a free seat.
-/// Each customer gets a random sprite sheet and a random free seat, walks there around the
-/// furniture, stays 5-7 seconds, and walks back out through the entrance.
-/// </summary>
-public sealed class CafeCustomerSpawner : MonoBehaviour
+// Sits at the entrance. Spawns customers, but only at clean tables.
+// Table life: Clean -> Occupied -> Dirty (only if the customer was served) -> Clean (player presses Q).
+public class CafeCustomerSpawner : MonoBehaviour
 {
-    [Tooltip("The customer object you built (root with CafeCustomer + IsoSortable, child with SpriteRenderer).")]
-    [SerializeField] private CafeCustomer customerPrefab;
+    public enum TableState { Clean, Occupied, Dirty }
 
-    [Tooltip("3x4 sprite sheets, 48x64 frames. One is picked at random for each customer.")]
-    [SerializeField] private Texture2D[] customerSheets;
+    public CafeCustomer customerPrefab;
+    public Texture2D[] customerSheets;   // random look for each customer
+    public Transform[] seats;            // one empty object per stool
+    public Tilemap floor;                // leave empty to use the object named "floor"
 
-    [Tooltip("One empty object per stool, placed where the customer's feet should stand.")]
-    [SerializeField] private Transform[] seats;
+    public float firstDelay = 1f;
+    public float minGap = 2f;            // seconds between customers
+    public float maxGap = 5f;
+    public Vector2 feetClearance = new Vector2(0.6f, 0.3f);
 
-    [Tooltip("Floor tilemap. Leave empty to use the object named 'floor'.")]
-    [SerializeField] private Tilemap floor;
+    CafeNavGrid grid;
+    TableState[] tables;
+    float timer;
 
-    [SerializeField, Min(0f)] private float firstDelay = 1f;
-    [SerializeField, Min(0f)] private float minGap = 2f;
-    [SerializeField, Min(0f)] private float maxGap = 5f;
-    [SerializeField, Min(0f)] private float minStay = 5f;
-    [SerializeField, Min(0f)] private float maxStay = 7f;
-
-    [Tooltip("Size of a customer's feet, used to keep paths clear of furniture.")]
-    [SerializeField] private Vector2 feetClearance = new Vector2(0.6f, 0.3f);
-
-    private CafeNavGrid grid;
-    private bool[] taken;
-    private float timer;
-
-    private void Start()
+    void Start()
     {
         if (floor == null)
-        {
-            var go = GameObject.Find("floor");
-            if (go != null) floor = go.GetComponent<Tilemap>();
-        }
-        if (floor != null)
-            grid = new CafeNavGrid(floor, feetClearance);
-        else
-            Debug.LogWarning("CafeCustomerSpawner: no floor tilemap found, customers will walk in straight lines.");
+            floor = GameObject.Find("floor").GetComponent<Tilemap>();
+        grid = new CafeNavGrid(floor, feetClearance);
 
-        taken = new bool[seats.Length];
+        // Every table starts clean.
+        tables = new TableState[seats.Length];
+        for (int i = 0; i < tables.Length; i++)
+            tables[i] = TableState.Clean;
+
+        OrderManager.Clear();
+        Debug.Log("[Table] All " + tables.Length + " tables are clean");
         timer = firstDelay;
     }
 
-    private void Update()
+    void Update()
     {
-        if (customerPrefab == null || customerSheets == null || customerSheets.Length == 0) return;
-
         timer -= Time.deltaTime;
         if (timer > 0f) return;
 
-        int seat = RandomFreeSeat();
-        if (seat < 0) { timer = 0.5f; return; }   // every seat is taken, check again soon
+        int table = PickCleanTable();
+        if (table == -1)
+        {
+            timer = 0.5f;   // no clean table, check again soon
+            return;
+        }
 
-        Spawn(seat);
+        SpawnCustomer(table);
         timer = Random.Range(minGap, maxGap);
     }
 
-    private int RandomFreeSeat()
+    // Returns a random clean table, or -1 if there is none.
+    int PickCleanTable()
     {
-        int free = 0;
-        for (int i = 0; i < taken.Length; i++) if (!taken[i] && seats[i] != null) free++;
-        if (free == 0) return -1;
-        int pick = Random.Range(0, free);
-        for (int i = 0; i < taken.Length; i++)
-            if (!taken[i] && seats[i] != null) { if (pick == 0) return i; pick--; }
-        return -1;
+        List<int> cleanTables = new List<int>();
+        for (int i = 0; i < tables.Length; i++)
+        {
+            if (tables[i] == TableState.Clean)
+                cleanTables.Add(i);
+        }
+
+        if (cleanTables.Count == 0) return -1;
+        return cleanTables[Random.Range(0, cleanTables.Count)];
     }
 
-    private void Spawn(int seatIndex)
+    void SpawnCustomer(int table)
     {
-        var sheet = customerSheets[Random.Range(0, customerSheets.Length)];
-        var customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
-        taken[seatIndex] = true;
-        customer.Init(this, grid, sheet, seatIndex, seats[seatIndex].position, transform.position,
-                      Random.Range(minStay, maxStay));
+        Texture2D look = customerSheets[Random.Range(0, customerSheets.Length)];
+        CafeCustomer customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+        tables[table] = TableState.Occupied;
+        customer.Init(this, grid, look, table, seats[table].position, transform.position);
     }
 
-    public void FreeSeat(int i)
+    // Called by a customer when it gets up to leave.
+    public void CustomerLeft(int table, bool wasServed)
     {
-        if (taken != null && i >= 0 && i < taken.Length) taken[i] = false;
+        if (wasServed)
+        {
+            tables[table] = TableState.Dirty;
+            Debug.Log("[Table] Table " + (table + 1) + " is dirty. Press Q near it to clean.");
+        }
+        else
+        {
+            tables[table] = TableState.Clean;
+            Debug.Log("[Table] Table " + (table + 1) + " is free (customer was not served)");
+        }
     }
 
-    private void OnDrawGizmos()
+    // Called by the player on Q. Cleans the first dirty table in range.
+    public bool CleanTableNear(Vector2 playerPosition, float range)
+    {
+        for (int i = 0; i < tables.Length; i++)
+        {
+            float distance = Vector2.Distance(seats[i].position, playerPosition);
+            if (tables[i] == TableState.Dirty && distance <= range)
+            {
+                tables[i] = TableState.Clean;
+                Debug.Log("[Table] Table " + (i + 1) + " cleaned");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Green circle = entrance, cyan circles = seats (Scene view only).
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, 0.3f);
         if (seats == null) return;
         Gizmos.color = Color.cyan;
-        foreach (var s in seats)
+        foreach (Transform s in seats)
             if (s != null) Gizmos.DrawWireSphere(s.position, 0.2f);
     }
 }

@@ -1,53 +1,73 @@
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
 
-public sealed class PlayerInteractor : MonoBehaviour
+// On the Player.
+// E = use the closest thing nearby (counter: pick up plate, customer: serve).
+// Q = clean the closest dirty table.
+public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField, Min(0.1f)] private float radius = 1.2f;
+    public float radius = 1.2f;
 
-    // For delivery later: the one item the player is carrying.
-    public string HeldItem { get; set; }
+    // Is the player carrying a plate? (Only one at a time.)
+    public bool holdingPlate;
 
-    private void Update()
+    CafeCustomerSpawner spawner;
+
+    void Start()
     {
-        if (!InteractPressed()) return;
+        spawner = FindFirstObjectByType<CafeCustomerSpawner>();
+    }
 
-        var target = FindNearest();
-        if (target == null)
-        {
+    void Update()
+    {
+        if (Keyboard.current == null) return;
+
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+            PressE();
+
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+            PressQ();
+    }
+
+    void PressE()
+    {
+        Interactable target = FindClosest();
+        if (target != null)
+            target.Interact(this);
+        else
             Debug.Log("[Player] Nothing to interact with");
-            return;
-        }
-        target.Interact(this);
     }
 
-    private Interactable FindNearest()
+    void PressQ()
     {
-        Interactable best = null;
-        float bestDist = float.PositiveInfinity;
-        foreach (var hit in Physics2D.OverlapCircleAll(transform.position, radius))
+        bool cleaned = spawner != null && spawner.CleanTableNear(transform.position, radius);
+        if (!cleaned)
+            Debug.Log("[Table] No dirty table nearby");
+    }
+
+    // Find the closest object in range that can be used right now.
+    Interactable FindClosest()
+    {
+        Interactable closest = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (Collider2D hit in Physics2D.OverlapCircleAll(transform.position, radius))
         {
-            var it = hit.GetComponentInParent<Interactable>();
-            if (it == null || !it.CanInteract(this)) continue;
+            Interactable thing = hit.GetComponentInParent<Interactable>();
+            if (thing == null || !thing.CanInteract(this)) continue;
 
-            float d = ((Vector2)hit.transform.position - (Vector2)transform.position).sqrMagnitude;
-            if (d < bestDist) { bestDist = d; best = it; }
+            float distance = Vector2.Distance(hit.transform.position, transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closest = thing;
+            }
         }
-        return best;
+        return closest;
     }
 
-    private static bool InteractPressed()
-    {
-#if ENABLE_INPUT_SYSTEM
-        return Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame;
-#else
-        return Input.GetKeyDown(KeyCode.E);
-#endif
-    }
-
-    private void OnDrawGizmosSelected()
+    // Shows the reach circle in the Scene view when the Player is selected.
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
