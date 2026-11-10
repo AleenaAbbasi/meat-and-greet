@@ -56,12 +56,6 @@ public sealed class TopDownPlayerMovement : MonoBehaviour
             playerCollider = gameObject.AddComponent<BoxCollider2D>();
         FitColliderToFeet(playerCollider, GetCollisionSprites());
 
-        // Register the player with the depth sorter so it draws in front of or behind props.
-        var sortable = GetComponent<IsoSortable>();
-        if (sortable == null)
-            sortable = gameObject.AddComponent<IsoSortable>();
-        sortable.MarkMoving();
-
         if (walkableArea == null)
         {
             var floor = GameObject.Find("floor");

@@ -68,10 +68,6 @@ public sealed class CafeCustomer : MonoBehaviour, Interactable
         feetOffset.z = 0f;
         transform.position = entrance + feetOffset;
 
-        // Re-measure the depth sorter now that the sprite is set.
-        var sortable = GetComponent<IsoSortable>();
-        if (sortable != null) { sortable.CacheComponents(); sortable.MarkMoving(); }
-
         StartPath(seat);
     }
 
@@ -105,6 +101,7 @@ public sealed class CafeCustomer : MonoBehaviour, Interactable
 
     private void Update()
     {
+        if (path == null) return;
         moving = false;
         switch (CurrentState)
         {
