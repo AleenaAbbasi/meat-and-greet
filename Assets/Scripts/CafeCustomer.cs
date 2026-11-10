@@ -1,181 +1,202 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// A customer that walks from the entrance to a free stool along a path around the
-/// furniture, stands there for a few seconds, then walks back out the way it came.
-/// Uses a 3x4 sprite sheet (48x64 frames): rows are front, left, right, back.
-/// Set up like the Player: this script on the root, the SpriteRenderer on a child.
-/// </summary>
-public sealed class CafeCustomer : MonoBehaviour, Interactable
+// One customer. Walks from the door to its table, orders, waits, then walks out.
+// Leaves 5 seconds after being served, or after 15 seconds if nobody serves it.
+// The look comes from a 3x4 sprite sheet (48x64 frames). Rows: front, left, right, back.
+public class CafeCustomer : MonoBehaviour, Interactable
 {
     public enum State { Entering, Seated, Leaving }
-    private enum Facing { Front = 0, Left = 1, Right = 2, Back = 3 }
 
-    [SerializeField, Min(0.1f)] private float walkSpeed = 2.5f;
-    [SerializeField, Min(1f)] private float framesPerSecond = 6f;
-    [Tooltip("Which way the customer faces while standing at the stool.")]
-    [SerializeField] private Facing seatedFacing = Facing.Front;
+    public float walkSpeed = 2.5f;
+    public float framesPerSecond = 6f;
+    public float waitSeconds = 15f;   // leaves unserved after this
+    public float eatSeconds = 5f;     // leaves this long after being served
 
-    [Header("Sprite sheet layout")]
-    [SerializeField] private int frameWidth = 48;
-    [SerializeField] private int frameHeight = 64;
-    [SerializeField] private int columns = 3;
-    [SerializeField] private float pixelsPerUnit = 100f;
-    [SerializeField] private string[] possibleOrders = { "Burger", "Steak", "Meat Pie", "Kebab" };
-    public string Order { get; private set; }
+    const int FrameWidth = 48;
+    const int FrameHeight = 64;
+    const int Columns = 3;
 
-    public State CurrentState { get; private set; } = State.Entering;
+    // Row of the sprite sheet for each direction.
+    const int Front = 0, Left = 1, Right = 2, Back = 3;
 
-    private SpriteRenderer spriteRenderer;
-    private Sprite[] frames;                 // index = row * columns + column
-    private Facing facing = Facing.Front;
-    private bool moving;
+    public State state = State.Entering;
 
-    private CafeCustomerSpawner spawner;
-    private CafeNavGrid grid;
-    private int seatIndex;
-    private Vector3 entrance;                // feet position
-    private Vector3 seat;                    // feet position
-    private Vector3 feetOffset;              // pivot minus feet
-    private List<Vector3> path;
-    private int pathIndex;
-    private float stayTimer;
+    CafeCustomerSpawner spawner;
+    CafeNavGrid grid;
+    int table;
+    Vector3 door;          // where the feet start
+    Vector3 seat;          // where the feet should end up
+    Vector3 feetOffset;    // gap between the object's position and its feet
 
-    // Sliced sheets are shared between customers that use the same texture.
-    private static readonly Dictionary<Texture2D, Sprite[]> SheetCache = new Dictionary<Texture2D, Sprite[]>();
+    List<Vector3> path;    // points to walk through
+    int pathIndex;
 
+    Order order;
+    float timer;           // counts down while seated
+
+    SpriteRenderer spriteRenderer;
+    Sprite[] frames;
+    int facing = Front;
+    bool moving;
+
+    // Called by the spawner right after creating the customer.
     public void Init(CafeCustomerSpawner owner, CafeNavGrid navGrid, Texture2D sheet,
-                     int seatIdx, Vector3 seatFeet, Vector3 entranceFeet, float staySeconds)
+                     int tableIndex, Vector3 seatPosition, Vector3 doorPosition)
     {
         spawner = owner;
         grid = navGrid;
-        seatIndex = seatIdx;
-        seat = seatFeet;
-        entrance = entranceFeet;
-        stayTimer = staySeconds;
-        //random order when customer spawns shows on console
-        Order = possibleOrders[Random.Range(0, possibleOrders.Length)];
-        Debug.Log($"[Order] {sheet.name} arrived and wants: {Order}");
+        table = tableIndex;
+        seat = seatPosition;
+        door = doorPosition;
+
+        // The order is placed as soon as the customer spawns.
+        order = OrderManager.Create(table);
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        frames = Slice(sheet);
-        SetFrame(Facing.Front, 0);
+        frames = CutSheet(sheet);
+        ShowFrame(Front, 0);
 
-        //workout where the feet are relative to the pivot, then stand the feet on the entrance.
-        var b = spriteRenderer.bounds;
+        // The object's position is the middle of the sprite. We want the FEET on the door.
+        Bounds b = spriteRenderer.bounds;
         feetOffset = transform.position - new Vector3(b.center.x, b.min.y, transform.position.z);
         feetOffset.z = 0f;
-        transform.position = entrance + feetOffset;
+        transform.position = door + feetOffset;
 
-        StartPath(seat);
+        WalkTo(seat);
     }
 
-    private Sprite[] Slice(Texture2D sheet)
+    // Cut the sprite sheet into 12 small frames.
+    Sprite[] CutSheet(Texture2D sheet)
     {
-        if (SheetCache.TryGetValue(sheet, out var cached)) return cached;
-
-        int rows = sheet.height / frameHeight;
-        var result = new Sprite[rows * columns];
+        int rows = sheet.height / FrameHeight;
+        Sprite[] result = new Sprite[rows * Columns];
         for (int row = 0; row < rows; row++)
-        for (int col = 0; col < columns; col++)
         {
-            // Row 0 is the TOP of the image, texture coordinates start at the bottom.
-            var rect = new Rect(col * frameWidth, sheet.height - (row + 1) * frameHeight, frameWidth, frameHeight);
-            var s = Sprite.Create(sheet, rect, new Vector2(0.5f, 0.5f), pixelsPerUnit, 0, SpriteMeshType.FullRect);
-            s.name = sheet.name + "_" + (row * columns + col);
-            result[row * columns + col] = s;
+            for (int col = 0; col < Columns; col++)
+            {
+                // Images count rows from the top, Unity counts y from the bottom.
+                float y = sheet.height - (row + 1) * FrameHeight;
+                Rect rect = new Rect(col * FrameWidth, y, FrameWidth, FrameHeight);
+                result[row * Columns + col] = Sprite.Create(sheet, rect, new Vector2(0.5f, 0.5f), 100f);
+            }
         }
-        SheetCache[sheet] = result;
         return result;
     }
 
-    private void StartPath(Vector3 targetFeet)
+    Vector3 Feet()
     {
-        path = grid != null ? grid.FindPath(Feet, targetFeet) : null;
-        if (path == null) path = new List<Vector3> { targetFeet };   // no route found: walk straight
+        return transform.position - feetOffset;
+    }
+
+    // Ask the nav grid for a route around the furniture.
+    void WalkTo(Vector3 target)
+    {
+        path = null;
+        if (grid != null) path = grid.FindPath(Feet(), target);
+        if (path == null) path = new List<Vector3> { target };   // no route: walk straight
         pathIndex = 0;
     }
 
-    private Vector3 Feet => transform.position - feetOffset;
-
-    private void Update()
+    void Update()
     {
-        if (path == null) return;
+        if (path == null) return;   // Init never ran
         moving = false;
-        switch (CurrentState)
+
+        if (state == State.Entering)
         {
-            case State.Entering:
-                if (FollowPath())
-                {
-                    CurrentState = State.Seated;
-                    facing = seatedFacing;
-                }
-                break;
-
-            case State.Seated:
-                stayTimer -= Time.deltaTime;
-                if (stayTimer <= 0f)
-                {
-                    CurrentState = State.Leaving;
-                    if (spawner != null) spawner.FreeSeat(seatIndex);
-                    StartPath(entrance);
-                }
-                break;
-
-            case State.Leaving:
-                if (FollowPath())
-                    Destroy(gameObject);
-                break;
+            if (FollowPath())
+            {
+                state = State.Seated;
+                facing = Front;
+                timer = waitSeconds;
+                Debug.Log("[Customer] Seated at table " + (table + 1) + ", waiting for a " + OrderManager.Dish);
+            }
         }
+        else if (state == State.Seated)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+                Leave();
+        }
+        else if (state == State.Leaving)
+        {
+            if (FollowPath())
+                Destroy(gameObject);
+        }
+
         Animate();
     }
 
-    /// <summary>Moves along the path. Returns true when the last point is reached.</summary>
-    private bool FollowPath()
+    void Leave()
+    {
+        state = State.Leaving;
+        OrderManager.Remove(order);
+        spawner.CustomerLeft(table, order.served);   // dirty if served, clean if not
+        WalkTo(door);
+    }
+
+    // Walk one step toward the next path point. Returns true when the path is finished.
+    bool FollowPath()
     {
         if (pathIndex >= path.Count) return true;
 
-        var target = path[pathIndex];
-        var feet = Feet;
-        var delta = target - feet;
-        delta.z = 0f;
+        Vector3 target = path[pathIndex];
+        Vector3 toTarget = target - Feet();
+        toTarget.z = 0f;
         float step = walkSpeed * Time.deltaTime;
 
-        if (delta.magnitude <= step)
+        // Close enough: snap onto the point and aim for the next one.
+        if (toTarget.magnitude <= step)
         {
             transform.position = target + feetOffset;
             pathIndex++;
             return pathIndex >= path.Count;
         }
 
-        var dir = delta.normalized;
-        transform.position += dir * step;
+        Vector3 direction = toTarget.normalized;
+        transform.position += direction * step;
         moving = true;
 
-        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
-            facing = dir.x < 0f ? Facing.Left : Facing.Right;
+        // Face whichever way we're mostly moving.
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            facing = direction.x < 0f ? Left : Right;
         else
-            facing = dir.y > 0f ? Facing.Back : Facing.Front;
+            facing = direction.y > 0f ? Back : Front;
         return false;
     }
 
-    private void Animate()
+    // Loop through the 3 frames while walking, frame 0 while standing.
+    void Animate()
     {
-        int frame = moving ? Mathf.FloorToInt(Time.time * framesPerSecond) % columns : 0;
-        SetFrame(facing, frame);
+        int frame = 0;
+        if (moving) frame = Mathf.FloorToInt(Time.time * framesPerSecond) % Columns;
+        ShowFrame(facing, frame);
     }
 
-    private void SetFrame(Facing f, int column)
+    void ShowFrame(int row, int column)
     {
-        int i = (int)f * columns + column;
-        if (frames != null && i < frames.Length && frames[i] != null)
+        int i = row * Columns + column;
+        if (frames != null && i < frames.Length)
             spriteRenderer.sprite = frames[i];
     }
-    public bool CanInteract(PlayerInteractor player) => CurrentState == State.Seated;
+
+    // E works on a seated customer who hasn't been served yet.
+    public bool CanInteract(PlayerInteractor player)
+    {
+        return state == State.Seated && !order.served;
+    }
 
     public void Interact(PlayerInteractor player)
     {
-        Debug.Log($"[Order] Customer at seat {seatIndex + 1} wants: {Order}");
+        if (!player.holdingPlate)
+        {
+            Debug.Log("[Order] Table " + (table + 1) + " wants a " + OrderManager.Dish + ". Pick one up at the counter (E).");
+            return;
+        }
+
+        player.holdingPlate = false;
+        OrderManager.MarkServed(order);
+        timer = eatSeconds;   // now leave in 5 seconds
     }
 }

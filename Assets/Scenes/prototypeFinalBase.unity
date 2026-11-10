@@ -12419,8 +12419,6 @@ MonoBehaviour:
   firstDelay: 1
   minGap: 2
   maxGap: 5
-  minStay: 5
-  maxStay: 7
   feetClearance: {x: 0.6, y: 0.3}
 --- !u!1 &1536135422
 GameObject:
@@ -12590,6 +12588,7 @@ GameObject:
   - component: {fileID: 1624143105}
   - component: {fileID: 1624143104}
   - component: {fileID: 1624143106}
+  - component: {fileID: 1624143107}
   m_Layer: 0
   m_Name: service_counter
   m_TagString: Untagged
@@ -12722,6 +12721,18 @@ PolygonCollider2D:
       - {x: 1.89, y: 0.19}
       - {x: 1.21, y: 0.44}
   m_UseDelaunayMesh: 1
+--- !u!114 &1624143107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624143103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4612c92c07153fb42ba64f1da8ca7129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlateCounter
 --- !u!1 &1633634013
 GameObject:
   m_ObjectHideFlags: 0
