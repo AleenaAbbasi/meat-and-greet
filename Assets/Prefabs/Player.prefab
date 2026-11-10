@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5261955444930348826}
   - component: {fileID: 742280720618271188}
   - component: {fileID: 876123021952348919}
+  - component: {fileID: 201202842063258599}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -104,25 +105,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd76eb6954a24446acd30cafa90746c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpriteAnimator
-  spriteRenderer: {fileID: 742280720618271188}
+  animator: {fileID: 0}
   movement: {fileID: 5724523034173233108}
-  framesPerSecond: 6
-  frontFrames:
-  - {fileID: -558103167, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: -1122535743, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: -227241741, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  sideLeftFrames:
-  - {fileID: -2084123926, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: -1913590479, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: -1922466156, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  sideRightFrames:
-  - {fileID: 932360037, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: 1412670307, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: 1489562936, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  backFrames:
-  - {fileID: 966507689, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: 705188351, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
-  - {fileID: 964001534, guid: 1cd824c513a79ae439150e0b92253e88, type: 3}
+--- !u!95 &201202842063258599
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996159023148336625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7914983915941877959
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +141,7 @@ GameObject:
   - component: {fileID: 4438865127583449156}
   - component: {fileID: 6741610230081433550}
   - component: {fileID: 5724523034173233108}
+  - component: {fileID: 2168606821627100383}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -244,3 +251,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopDownPlayerMovement
   moveSpeed: 5
+  walkableArea: {fileID: 0}
+  edgePadding: 0.05
+--- !u!114 &2168606821627100383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914983915941877959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9326b96d64f3bd84d840fa2b773611da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  radius: 1.2

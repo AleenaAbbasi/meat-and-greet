@@ -403,6 +403,40 @@ PolygonCollider2D:
       - {x: 0.53, y: -0.2}
       - {x: 0.21, y: -0.01}
   m_UseDelaunayMesh: 1
+--- !u!1 &82907892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 82907893}
+  m_Layer: 0
+  m_Name: Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &82907893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82907892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.155347, y: 2.1012018, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1246691757}
+  - {fileID: 2070893954}
+  - {fileID: 339656557}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220347488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,7 +1768,6 @@ GameObject:
   - component: {fileID: 268401671}
   - component: {fileID: 268401670}
   - component: {fileID: 268401673}
-  - component: {fileID: 268401672}
   m_Layer: 0
   m_Name: prop_14_0
   m_TagString: Untagged
@@ -1810,27 +1843,12 @@ Transform:
   m_GameObject: {fileID: 268401669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.502125, y: 0.9808277, z: 0}
+  m_LocalPosition: {x: -11.502125, y: 0.9808277, z: -1}
   m_LocalScale: {x: 1.5559, y: 1.5559, z: 1.5559}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &268401672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268401669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef10c4844ba48bfbdebe2ad807762c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IsoSortable
-  attachTo: {fileID: 0}
-  attachOffset: 1
-  isStatic: 1
 --- !u!60 &268401673
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1986,7 +2004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef10c4844ba48bfbdebe2ad807762c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IsoSortable
-  attachTo: {fileID: 1246691758}
+  attachTo: {fileID: 0}
   attachOffset: 3
   isStatic: 1
 --- !u!1 &305223981
@@ -2269,7 +2287,6 @@ GameObject:
   - component: {fileID: 339656557}
   - component: {fileID: 339656556}
   - component: {fileID: 339656559}
-  - component: {fileID: 339656558}
   m_Layer: 0
   m_Name: wall2 (2)
   m_TagString: Untagged
@@ -2345,27 +2362,12 @@ Transform:
   m_GameObject: {fileID: 339656555}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.155347, y: 2.1012018, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.31587046, y: 0.31587046, z: 0.31587046}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 82907893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &339656558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339656555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef10c4844ba48bfbdebe2ad807762c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IsoSortable
-  attachTo: {fileID: 1246691758}
-  attachOffset: 2
-  isStatic: 1
 --- !u!60 &339656559
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11327,7 +11329,6 @@ GameObject:
   - component: {fileID: 1246691757}
   - component: {fileID: 1246691756}
   - component: {fileID: 1246691759}
-  - component: {fileID: 1246691758}
   m_Layer: 0
   m_Name: wall2
   m_TagString: Untagged
@@ -11402,28 +11403,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246691755}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.97655, y: 3.127319, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8212032, y: 1.0261173, z: 0}
   m_LocalScale: {x: -0.31587046, y: 0.31587046, z: 0.31587046}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 82907893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1246691758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246691755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef10c4844ba48bfbdebe2ad807762c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IsoSortable
-  attachTo: {fileID: 0}
-  attachOffset: 1
-  isStatic: 1
 --- !u!60 &1246691759
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11486,7 +11472,6 @@ GameObject:
   - component: {fileID: 1257436196}
   - component: {fileID: 1257436195}
   - component: {fileID: 1257436198}
-  - component: {fileID: 1257436197}
   m_Layer: 0
   m_Name: prop_04_0
   m_TagString: Untagged
@@ -11562,27 +11547,12 @@ Transform:
   m_GameObject: {fileID: 1257436194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.521537, y: 0.3642124, z: 0}
+  m_LocalPosition: {x: -10.521537, y: 0.3642124, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1257436197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257436194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef10c4844ba48bfbdebe2ad807762c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IsoSortable
-  attachTo: {fileID: 0}
-  attachOffset: 1
-  isStatic: 1
 --- !u!60 &1257436198
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11771,7 +11741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742262026658796228, guid: 30d43ffeefee6414c9a82546cd2915c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 742262026658796228, guid: 30d43ffeefee6414c9a82546cd2915c7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12168,6 +12138,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 09c254bafb1f66142a166f9ad382a6be, type: 3}
   - {fileID: 2800000, guid: 4d2a647fac7d55a4aaddab20860a258c, type: 3}
   - {fileID: 2800000, guid: d008a0f6f4b0116449f8772545332260, type: 3}
+  - {fileID: 2800000, guid: a8d2bf7b34737914985483214fcc4e7b, type: 3}
   seats:
   - {fileID: 2109680822}
   - {fileID: 1652388914}
@@ -13344,7 +13315,6 @@ GameObject:
   - component: {fileID: 2070893954}
   - component: {fileID: 2070893953}
   - component: {fileID: 2070893956}
-  - component: {fileID: 2070893955}
   m_Layer: 0
   m_Name: wall2 (1)
   m_TagString: Untagged
@@ -13420,27 +13390,12 @@ Transform:
   m_GameObject: {fileID: 2070893952}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.017052, y: 2.5727017, z: 0}
+  m_LocalPosition: {x: -0.8617048, y: 0.47149992, z: 0}
   m_LocalScale: {x: -0.31587046, y: 0.31587046, z: 0.31587046}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 82907893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2070893955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070893952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef10c4844ba48bfbdebe2ad807762c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IsoSortable
-  attachTo: {fileID: 1246691758}
-  attachOffset: 1
-  isStatic: 1
 --- !u!60 &2070893956
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -13955,9 +13910,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1733944420}
-  - {fileID: 1246691757}
-  - {fileID: 2070893954}
-  - {fileID: 339656557}
+  - {fileID: 82907893}
   - {fileID: 984591614}
   - {fileID: 1845342757}
   - {fileID: 547111130}
