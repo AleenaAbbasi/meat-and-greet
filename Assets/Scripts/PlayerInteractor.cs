@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 // On the Player.
 // E = use the closest thing nearby (counter: pick up plate, customer: serve).
 // Q = clean the closest dirty table.
-// F = kill an anomaly that is close.
+// F = kill aN ANOMALY OR CUSTOMER 
 public class PlayerInteractor : MonoBehaviour
 {
     public float radius = 1.2f;
@@ -47,13 +47,13 @@ public class PlayerInteractor : MonoBehaviour
         foreach (Collider2D hit in Physics2D.OverlapCircleAll(transform.position, radius))
         {
             CafeCustomer customer = hit.GetComponentInParent<CafeCustomer>();
-            if (customer != null && customer.isAnomaly)
+            if (customer != null) // && customer.isAnomaly had this condition but now we kill both :) and make life difficult
             {
                 customer.Kill();
                 return;
             }
         }
-        Debug.Log("[Kill] No anomaly nearby");
+        Debug.Log("[ACTION: KILL] Nobody nearby"); //changed the message to not specific to anomaly but general killing
     }
 
     void PressQ()

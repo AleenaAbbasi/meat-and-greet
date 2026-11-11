@@ -6,6 +6,7 @@ public sealed class PlayerSpriteAnimator : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private TopDownPlayerMovement movement;
 
+   
     private void Awake()
     {
         if (animator == null)
@@ -14,6 +15,7 @@ public sealed class PlayerSpriteAnimator : MonoBehaviour
             movement = GetComponentInParent<TopDownPlayerMovement>();
     }
 
+    //the player now uses the animator tool assw wee removed the script use to it (it was easy this way)
     private void Update()
     {
         if (animator == null || movement == null)
@@ -22,7 +24,7 @@ public sealed class PlayerSpriteAnimator : MonoBehaviour
         Vector2 input = movement.MoveInput;
         animator.SetFloat("Speed", input.magnitude);
 
-        // Only update direction while moving, so idle keeps the last facing.
+        //only update direction while moving, so idle keeps the last facing.
         if (input.sqrMagnitude > 0.01f)
         {
             animator.SetFloat("MoveX", input.x);

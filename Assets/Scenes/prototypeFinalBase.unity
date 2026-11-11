@@ -12402,6 +12402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CafeCustomerSpawner
   customerPrefab: {fileID: 3743411926944795303, guid: 01058ef03dd070249a93b9b1cc94de57, type: 3}
+  anomalyPrefab: {fileID: 3743411926944795303, guid: 613ec2a0b8e6741798d8bb265a7b4fec, type: 3}
   customerSheets:
   - {fileID: 2800000, guid: d055bf383089c9c469c93458295b93a7, type: 3}
   - {fileID: 2800000, guid: 09c254bafb1f66142a166f9ad382a6be, type: 3}
@@ -12420,6 +12421,7 @@ MonoBehaviour:
   minGap: 2
   maxGap: 5
   feetClearance: {x: 0.6, y: 0.3}
+  firstAnomalyMax: 5
 --- !u!1 &1536135422
 GameObject:
   m_ObjectHideFlags: 0
