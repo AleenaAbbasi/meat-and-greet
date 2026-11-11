@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// One customer's order.
+//a calss for ONE customer's order.
 public class Order
 {
     public int id;
@@ -9,7 +9,7 @@ public class Order
     public bool served;
 }
 
-// Keeps a list of all active orders and prints it whenever it changes.
+//keeps a list of all active orders and prints it whenever it changes.
 public static class OrderManager
 {
     public const string Dish = "Meat Plate";   // every customer orders this
@@ -23,7 +23,7 @@ public static class OrderManager
         nextId = 1;
     }
 
-    // Customer spawned: add a new order.
+    //new customer/anomaly spawned: add a new order.
     public static Order Create(int table)
     {
         Order order = new Order();
@@ -37,7 +37,7 @@ public static class OrderManager
         return order;
     }
 
-    // Player gave the plate to the customer.
+    //player gave the plate to the customer.
     public static void MarkServed(Order order)
     {
         order.served = true;
@@ -45,7 +45,7 @@ public static class OrderManager
         PrintList();
     }
 
-    // Customer left: remove the order.
+    //customer left: remove the order.
     public static void Remove(Order order)
     {
         activeOrders.Remove(order);
@@ -55,12 +55,17 @@ public static class OrderManager
 
     static void PrintList()
     {
-        string text = "Active orders: " + activeOrders.Count;
+        //it only counts the orders that are still waiting for food.
+        int unserved = 0;
+        string text = "";
         foreach (Order o in activeOrders)
         {
-            string status = o.served ? "served" : "waiting";
-            text += "\n  #" + o.id + " table " + (o.table + 1) + " - " + status;
+            if (!o.served)
+            {
+                unserved++;
+                text += "\n  #" + o.id + " table " + (o.table + 1);
+            }
         }
-        Debug.Log(text);
+        Debug.Log("Orders unserved: " + unserved + text);
     }
 }
