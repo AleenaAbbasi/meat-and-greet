@@ -13,6 +13,15 @@ public class CafeCustomer : MonoBehaviour, Interactable
     public float waitSeconds = 15f;   // leaves unserved after this
     public float eatSeconds = 5f;     // leaves this long after being served
 
+    // --- Anomaly settings (only used on the Anomaly prefab) ---
+    public bool isAnomaly;               // tick this on the Anomaly prefab only
+    public MeatPickup meatPrefab;        // the meat that drops when the anomaly dies
+    public int meatCount = 3;            // how many meat pieces drop
+    public float walkAnimSpeed = 0.5f;   // Animator speed while walking (1 = 12 frames per second)
+
+    // The state names inside the Animator Controller: Front, Left, Right, Back.
+    static readonly string[] WalkStates = { "AnomalyWalk_Front", "AnomalyWalk_Left", "AnomalyWalk_Right", "AnomalyWalk_Back" };
+
     const int FrameWidth = 48;
     const int FrameHeight = 64;
     const int Columns = 3;
@@ -40,6 +49,10 @@ public class CafeCustomer : MonoBehaviour, Interactable
     int facing = Front;
     bool moving;
 
+    Animator animator;     // only anomalies have one
+    int shownFacing = -1;
+    bool shownMoving;
+
     // Called by the spawner right after creating the customer.
     public void Init(CafeCustomerSpawner owner, CafeNavGrid navGrid, Texture2D sheet,
                      int tableIndex, Vector3 seatPosition, Vector3 doorPosition)
@@ -54,8 +67,13 @@ public class CafeCustomer : MonoBehaviour, Interactable
         order = OrderManager.Create(table);
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        frames = CutSheet(sheet);
-        ShowFrame(Front, 0);
+        // Anomalies are animated by an Animator. Normal customers are cut from a sheet.
+        animator = GetComponentInChildren<Animator>();
+        if (animator == null)
+        {
+            frames = CutSheet(sheet);
+            ShowFrame(Front, 0);
+        }
 
         // The object's position is the middle of the sprite. We want the FEET on the door.
         Bounds b = spriteRenderer.bounds;
@@ -169,6 +187,20 @@ public class CafeCustomer : MonoBehaviour, Interactable
     // Loop through the 3 frames while walking, frame 0 while standing.
     void Animate()
     {
+        // Anomaly: the Animator plays the right clip. We only tell it which one.
+        if (animator != null)
+        {
+            if (facing != shownFacing || moving != shownMoving)
+            {
+                shownFacing = facing;
+                shownMoving = moving;
+                animator.Play(WalkStates[facing], 0, 0f);        // start the clip on frame 0
+                animator.speed = moving ? walkAnimSpeed : 0f;    // speed 0 = stand still on frame 0
+                animator.Update(0f);
+            }
+            return;
+        }
+
         int frame = 0;
         if (moving) frame = Mathf.FloorToInt(Time.time * framesPerSecond) % Columns;
         ShowFrame(facing, frame);
@@ -179,6 +211,33 @@ public class CafeCustomer : MonoBehaviour, Interactable
         int i = row * Columns + column;
         if (frames != null && i < frames.Length)
             spriteRenderer.sprite = frames[i];
+    }
+
+    // Player pressed F near an anomaly: it dies and turns into bouncing meat.
+    public void Kill()
+    {
+        if (!isAnomaly) return;
+
+        // Close its order and free the table (unless it was already leaving).
+        if (state != State.Leaving)
+        {
+            OrderManager.Remove(order);
+            spawner.CustomerLeft(table, false);
+        }
+
+        Debug.Log("[Kill] Anomaly killed at table " + (table + 1));
+
+        if (meatPrefab != null)
+        {
+            List<MeatPickup> pieces = new List<MeatPickup>();
+            Vector3 spot = Feet() + new Vector3(0f, 0.15f, 0f);
+            for (int i = 0; i < meatCount; i++)
+                pieces.Add(Instantiate(meatPrefab, spot, Quaternion.identity));
+            foreach (MeatPickup piece in pieces)
+                piece.Launch(pieces);
+        }
+
+        Destroy(gameObject);
     }
 
     // E works on a seated customer who hasn't been served yet.

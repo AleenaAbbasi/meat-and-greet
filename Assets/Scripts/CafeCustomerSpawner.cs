@@ -9,6 +9,7 @@ public class CafeCustomerSpawner : MonoBehaviour
     public enum TableState { Clean, Occupied, Dirty }
 
     public CafeCustomer customerPrefab;
+    public CafeCustomer anomalyPrefab;   // the Anomaly prefab (leave empty = no anomalies)
     public Texture2D[] customerSheets;   // random look for each customer
     public Transform[] seats;            // one empty object per stool
     public Tilemap floor;                // leave empty to use the object named "floor"
@@ -17,10 +18,13 @@ public class CafeCustomerSpawner : MonoBehaviour
     public float minGap = 2f;            // seconds between customers
     public float maxGap = 5f;
     public Vector2 feetClearance = new Vector2(0.6f, 0.3f);
+    public int firstAnomalyMax = 5;      // first anomaly is customer number 1 to this
 
     CafeNavGrid grid;
     TableState[] tables;
     float timer;
+    int customersSpawned;
+    int nextAnomalyAt;
 
     void Start()
     {
@@ -36,6 +40,9 @@ public class CafeCustomerSpawner : MonoBehaviour
         OrderManager.Clear();
         Debug.Log("[Table] All " + tables.Length + " tables are clean");
         timer = firstDelay;
+
+        customersSpawned = 0;
+        nextAnomalyAt = Random.Range(1, firstAnomalyMax + 1);
     }
 
     void Update()
@@ -70,8 +77,22 @@ public class CafeCustomerSpawner : MonoBehaviour
 
     void SpawnCustomer(int table)
     {
-        Texture2D look = customerSheets[Random.Range(0, customerSheets.Length)];
-        CafeCustomer customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+        customersSpawned++;
+        bool anomaly = anomalyPrefab != null && customersSpawned == nextAnomalyAt;
+
+        Texture2D look = null;     // anomalies don't need a sheet, their Animator does the look
+        CafeCustomer customer;
+        if (anomaly)
+        {
+            customer = Instantiate(anomalyPrefab, transform.position, Quaternion.identity);
+            nextAnomalyAt = customersSpawned + Random.Range(3, 7);   // next one in 3 to 6 customers
+            Debug.Log("[Spawner] Anomaly arrived (customer #" + customersSpawned + ")");
+        }
+        else
+        {
+            look = customerSheets[Random.Range(0, customerSheets.Length)];
+            customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+        }
         tables[table] = TableState.Occupied;
         customer.Init(this, grid, look, table, seats[table].position, transform.position);
     }
