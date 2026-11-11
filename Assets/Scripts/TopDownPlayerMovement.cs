@@ -3,8 +3,8 @@ using UnityEngine.Tilemaps;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
-
-/// <summary>Moves in screen-cardinal directions while keeping the player on the 2D grid.</summary>
+//this all is for catering teh isometric mvoements
+//Moves in screen-cardinal directions while keeping the player on the 2D grid
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public sealed class TopDownPlayerMovement : MonoBehaviour
@@ -24,7 +24,7 @@ public sealed class TopDownPlayerMovement : MonoBehaviour
     public static TopDownPlayerMovement Active { get; private set; }
     public Vector2 MoveInput => moveInput;
 
-    /// <summary>Bottom-centre of the feet collider. Props use this to decide draw order.</summary>
+    //Bottom-centre of the feet collider. Props use this to decide draw order.
     public Vector2 FeetPosition
     {
         get

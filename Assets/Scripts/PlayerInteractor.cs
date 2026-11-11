@@ -1,17 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement; // addign this for game voer concept for now will make game amnager later 
 
-// On the Player.
+//PLAYER CONTROLS:
 // E = use the closest thing nearby (counter: pick up plate, customer: serve).
+//on empty non itneractable it says :mnothign to itneract with
 // Q = clean the closest dirty table.
 // F = kill aN ANOMALY OR CUSTOMER 
+// R = restart after game over
 public class PlayerInteractor : MonoBehaviour
 {
     public float radius = 1.2f;
 
-    // Is the player carrying a plate? (Only one at a time.)
+    //is the player carrying a plate? (Only one at a time.)
     public bool holdingPlate;
     public GameObject heldPlateVisual;
+
+
+    //game over: kill this many normal customers and the game freezes.
+    public int maxKills = 3; //max kill limit -3
+    int customersKilled;
+    bool gameOver;
+    //-----
+
 
     CafeCustomerSpawner spawner;
 
@@ -24,6 +35,17 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (Keyboard.current == null) return;
         if (heldPlateVisual != null) heldPlateVisual.SetActive(holdingPlate);
+
+        //game over cncpet: everything is frozen, only R works.
+        if (gameOver)
+        {
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                Time.timeScale = 1f;   // unfreeze
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);   // start over
+            }
+            return;
+        }
 
         if (Keyboard.current.eKey.wasPressedThisFrame)
             PressE();
@@ -51,7 +73,25 @@ public class PlayerInteractor : MonoBehaviour
             CafeCustomer customer = hit.GetComponentInParent<CafeCustomer>();
             if (customer != null) // && customer.isAnomaly had this condition but now we kill both :) and make life difficult
             {
+                //customer.Kill();
+                //return;
+                //leaving the above two linees uncommented cause will need em later whene we make gamee manager
+                //specific for gameovere now
+                bool wasNormalCustomer = !customer.isAnomaly;
                 customer.Kill();
+
+                if (wasNormalCustomer)
+                {
+                    customersKilled++;
+                    Debug.Log("[Risk] Customers killed: " + customersKilled + "/" + maxKills);
+
+                    if (customersKilled >= maxKills)
+                    {
+                        gameOver = true;
+                        Time.timeScale = 0f;   // freeze the game
+                        Debug.Log("GAME OVER! You killed " + customersKilled + " customers. Press R to restart.");
+                    }
+                }
                 return;
             }
         }
