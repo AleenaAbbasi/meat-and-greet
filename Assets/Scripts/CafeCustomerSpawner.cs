@@ -79,14 +79,19 @@ public class CafeCustomerSpawner : MonoBehaviour
     // Called by a customer when it gets up to leave.
     public void CustomerLeft(int table, bool wasServed)
     {
+        TableVisuals visuals = TableVisuals.Get(table);
+        visuals?.SetPlate(false);   // the plate goes away when the customer gets up
+
         if (wasServed)
         {
             tables[table] = TableState.Dirty;
+            visuals?.SetDirty(true);
             Debug.Log("[Table] Table " + (table + 1) + " is dirty. Press Q near it to clean.");
         }
         else
         {
             tables[table] = TableState.Clean;
+            visuals?.SetDirty(false);
             Debug.Log("[Table] Table " + (table + 1) + " is free (customer was not served)");
         }
     }
@@ -96,10 +101,16 @@ public class CafeCustomerSpawner : MonoBehaviour
     {
         for (int i = 0; i < tables.Length; i++)
         {
-            float distance = Vector2.Distance(seats[i].position, playerPosition);
-            if (tables[i] == TableState.Dirty && distance <= range)
+            if (tables[i] != TableState.Dirty) continue;
+
+            // Use the table's visual position if it has one, otherwise the seat.
+            TableVisuals visuals = TableVisuals.Get(i);
+            Vector2 anchor = visuals != null ? (Vector2)visuals.transform.position : (Vector2)seats[i].position;
+
+            if (Vector2.Distance(anchor, playerPosition) <= range)
             {
                 tables[i] = TableState.Clean;
+                visuals?.SetDirty(false);
                 Debug.Log("[Table] Table " + (i + 1) + " cleaned");
                 return true;
             }

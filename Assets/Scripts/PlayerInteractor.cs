@@ -10,6 +10,7 @@ public class PlayerInteractor : MonoBehaviour
 
     // Is the player carrying a plate? (Only one at a time.)
     public bool holdingPlate;
+    public GameObject heldPlateVisual;
 
     CafeCustomerSpawner spawner;
 
@@ -21,6 +22,7 @@ public class PlayerInteractor : MonoBehaviour
     void Update()
     {
         if (Keyboard.current == null) return;
+        if (heldPlateVisual != null) heldPlateVisual.SetActive(holdingPlate);
 
         if (Keyboard.current.eKey.wasPressedThisFrame)
             PressE();
